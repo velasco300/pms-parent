@@ -5,8 +5,8 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.1.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <version>2.1.10.RELEASE</version>
+        <relativePath/>
     </parent>
     <groupId>com.zzz.pms</groupId>
     <artifactId>pms-parent</artifactId>
@@ -15,14 +15,59 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <spring-cloud.version>Greenwich.SR4</spring-cloud.version>
+        <pms-eureka.version>1.0.0</pms-eureka.version>
+        <pms-config.version>1.0.0</pms-config.version>
+        <pms-gateway.version>1.0.0</pms-gateway.version>
+        <pms-generic.version>1.0.0</pms-generic.version>
+        <pms-rpc.version>1.0.0</pms-rpc.version>
+        <pms-sys.version>1.0.0</pms-sys.version>
+        <pms-auth.version>1.0.0</pms-auth.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>com.zzz.pms</groupId>
+                <artifactId>pmseureka</artifactId>
+                <version>${pms-eureka.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zzz.pms</groupId>
+                <artifactId>pmsconfig</artifactId>
+                <version>${pms-config.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zzz.pms</groupId>
+                <artifactId>pmsgateway</artifactId>
+                <version>${pms-gateway.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zzz.pms</groupId>
+                <artifactId>pmsgeneric</artifactId>
+                <version>${pms-generic.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zzz.pms</groupId>
+                <artifactId>pmsrpc</artifactId>
+                <version>${pms-rpc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zzz.pms</groupId>
+                <artifactId>pmssys</artifactId>
+                <version>${pms-sys.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zzz.pms</groupId>
                 <artifactId>pmsauth</artifactId>
-                <version>1.0.0</version>
+                <version>${pms-auth.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -37,6 +82,14 @@
     </build>
 
     <modules>
+        <module>../pms-eureka</module>
+        <module>../pms-config</module>
+        <module>../pms-gateway</module>
+        <!--
+        <module>../pms-generic</module>
+        <module>../pms-rpc</module>
+        <module>../pms-sys</module>
         <module>../pms-auth</module>
+        -->
     </modules>
 </project>
