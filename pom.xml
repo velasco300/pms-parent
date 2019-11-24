@@ -29,37 +29,37 @@
         <dependencies>
             <dependency>
                 <groupId>com.zzz.pms</groupId>
-                <artifactId>pmseureka</artifactId>
+                <artifactId>pms-eureka</artifactId>
                 <version>${pms-eureka.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.zzz.pms</groupId>
-                <artifactId>pmsconfig</artifactId>
+                <artifactId>pms-config</artifactId>
                 <version>${pms-config.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.zzz.pms</groupId>
-                <artifactId>pmsgateway</artifactId>
+                <artifactId>pms-gateway</artifactId>
                 <version>${pms-gateway.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.zzz.pms</groupId>
-                <artifactId>pmsgeneric</artifactId>
+                <artifactId>pms-generic</artifactId>
                 <version>${pms-generic.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.zzz.pms</groupId>
-                <artifactId>pmsrpc</artifactId>
+                <artifactId>pms-rpc</artifactId>
                 <version>${pms-rpc.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.zzz.pms</groupId>
-                <artifactId>pmssys</artifactId>
+                <artifactId>pms-sys</artifactId>
                 <version>${pms-sys.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.zzz.pms</groupId>
-                <artifactId>pmsauth</artifactId>
+                <artifactId>pms-auth</artifactId>
                 <version>${pms-auth.version}</version>
             </dependency>
             <dependency>
@@ -85,8 +85,8 @@
         <module>../pms-eureka</module>
         <module>../pms-config</module>
         <module>../pms-gateway</module>
-        <!--
         <module>../pms-generic</module>
+        <!--
         <module>../pms-rpc</module>
         <module>../pms-sys</module>
         <module>../pms-auth</module>
