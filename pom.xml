@@ -2,10 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.10.RELEASE</version>
+        <version>2.6.13</version>
         <relativePath/>
     </parent>
     <groupId>com.zzz.pms</groupId>
@@ -13,59 +14,54 @@
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
+    <modules>
+        <module>../pms-generic</module>
+        <module>../pms-gateway</module>
+        <module>../pms-sys</module>
+    </modules>
+
     <properties>
-        <java.version>1.8</java.version>
-        <spring-cloud.version>Greenwich.SR4</spring-cloud.version>
-        <pms-eureka.version>1.0.0</pms-eureka.version>
-        <pms-config.version>1.0.0</pms-config.version>
-        <pms-gateway.version>1.0.0</pms-gateway.version>
-        <pms-generic.version>1.0.0</pms-generic.version>
-        <pms-rpc.version>1.0.0</pms-rpc.version>
-        <pms-sys.version>1.0.0</pms-sys.version>
-        <pms-auth.version>1.0.0</pms-auth.version>
+        <java.version>17</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
+        <spring-cloud.version>2021.0.5</spring-cloud.version>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.zzz.pms</groupId>
-                <artifactId>pms-eureka</artifactId>
-                <version>${pms-eureka.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zzz.pms</groupId>
-                <artifactId>pms-config</artifactId>
-                <version>${pms-config.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zzz.pms</groupId>
-                <artifactId>pms-gateway</artifactId>
-                <version>${pms-gateway.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zzz.pms</groupId>
-                <artifactId>pms-generic</artifactId>
-                <version>${pms-generic.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zzz.pms</groupId>
-                <artifactId>pms-rpc</artifactId>
-                <version>${pms-rpc.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zzz.pms</groupId>
-                <artifactId>pms-sys</artifactId>
-                <version>${pms-sys.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.zzz.pms</groupId>
-                <artifactId>pms-auth</artifactId>
-                <version>${pms-auth.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -81,15 +77,18 @@
         </plugins>
     </build>
 
-    <modules>
-        <module>../pms-eureka</module>
-        <module>../pms-config</module>
-        <module>../pms-gateway</module>
-        <module>../pms-generic</module>
-        <!--
-        <module>../pms-rpc</module>
-        <module>../pms-sys</module>
-        <module>../pms-auth</module>
-        -->
-    </modules>
+    <distributionManagement>
+        <repository>
+            <id>zl-deploy</id>
+            <name>Internal Releases</name>
+            <url>http://192.168.1.75:20025/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>zl-deploy</id>
+            <name>Internal snapshot</name>
+            <url>http://192.168.1.75:20025/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
 </project>
+
